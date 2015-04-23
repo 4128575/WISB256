@@ -1,2 +1,3 @@
 name = raw_input('Name? ')
-print('Hello '+name+'!')
+greet = raw_input('How many greetings? ')
+print(greet+' x Hello, '+name+'!')
