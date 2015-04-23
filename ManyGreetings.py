@@ -1,2 +1,2 @@
 name = raw_input('Name? ')
-print('Hello '+name+'!')
+print('Hello, '+name+'!')
