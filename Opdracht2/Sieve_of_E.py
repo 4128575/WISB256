@@ -1,8 +1,9 @@
 import time
+import sys
 
-file = open('prime.dat', 'w')
+file = open(str(sys.argv[2]), 'w')
 
-limiet = int(input('Bovenlimiet? '))
+limiet = int(sys.argv[1])
 
 T1 = time.perf_counter()
 
