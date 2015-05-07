@@ -24,5 +24,5 @@ for line in conn2.fp:
 #        print(line)
 #    if 'Latitude' in line: 
 #        print(line)
-
+check_fermat(1,2,3,4)
 conn2.close()
