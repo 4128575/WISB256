@@ -26,20 +26,15 @@ def estimate_pi():
         a=(2*math.sqrt(2)*math.factorial(4*k)*(1103+26390*k))/(9801*(math.factorial(k)**4)*(396**(4*k)))
     return 1/s
 
-def bisection(l,a):
-    k=0
+def bisection(l,a,k):
     if l[math.floor(len(l)/2):][0]<a:
-        print(math.floor(len(l)/2))
+        print(k)
         k=k+math.floor(len(l)/2)
         print(k)
-        print(l[math.floor(len(l)/2):])
-        bisection(l[math.floor(len(l)/2):],a)
+        bisection(l[math.floor(len(l)/2):],a,k)
     elif l[math.floor(len(l)/2):][0]==a:
-        print(k)
+        return k+1
     else:
-        bisection(l[:math.ceil(len(l)/2)],a)
-
-testlijst=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
-#bisection(testlijst,10)
-#bisection(testlijst[:math.ceil(len(testlijst)/2)],10)
-print(testlijst[math.floor(len(testlijst)/2):])
+        bisection(l[:math.ceil(len(l)/2)],a,k)
+testlijst=list(range(1, 9))
+bisection(testlijst,7,0)
