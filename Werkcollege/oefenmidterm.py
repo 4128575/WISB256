@@ -31,10 +31,20 @@ import math
 #    print(d)
 
 #C-Nerfgun
-vuurkracht = int(input())
-zwaartekracht = int(input())
-afstand = int(input())
-waarde=(afstand*zwaartekracht)/(vuurkracht*vuurkracht)
-hoek = (1/2)*math.asin(waarde)
-hoek ="{0:.2f}".format(hoek)
-print(hoek)
+#vuurkracht = int(input())
+#zwaartekracht = int(input())
+#afstand = int(input())
+#waarde=(afstand*zwaartekracht)/(vuurkracht*vuurkracht)
+#hoek = (1/2)*math.asin(waarde)
+#hoek ="{0:.2f}".format(hoek)
+#print(hoek)
+
+#D-Vigenerecijfer
+code=input()
+sleutel=input()
+bericht=''
+for i in range(0,len(code)):
+    a=ord(code[i])-97
+    b=ord(sleutel[i%len(sleutel)])-97
+    c=(a+b)%26
+    letter=chr(c+97)
