@@ -46,3 +46,11 @@ class Vector:
         for i in range(0,len(self.n)):
             inner+=float(self.n[i])*float(other.n[i])
         return inner
+
+def GrammSchmidt(V):
+    k=len(V)
+    for i in range(k):
+        V[i]=V[i].scalar(1/(V[i].norm()))
+        for j in range(i+1,k):
+            V[j]=V[j].lincomb(V[i].scalar(V[j].inner(V[i])/V[i].inner(V[i])),1,-1)
+    return V
