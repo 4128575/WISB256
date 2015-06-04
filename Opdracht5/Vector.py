@@ -4,48 +4,43 @@ class Vector:
     """Vector in R^n"""
     def __init__(self,n,m=None):
         if m is None:
-            self.n=[0]*n
+            self.n=[float(0)]*n
         elif type(m)==list:
-            self.n=m
+            self.n=list(m)
         elif type(m)==float:
             self.n=[m]*n
         elif type(m)==int:
             self.n=[m]*n
-        for i in range(0,n):
-            self.n[i]="%f"%self.n[i]
-
 
     def __str__(self):
-        for k in range(0,len(self.n)):
-            self.n[k]=str(self.n[k])
-        return "\n".join(self.n)
+        lijstje=[]
+        for i in range(len(self.n)):
+            lijstje.append(str(self.n[i]))
+        return "\n".join(lijstje)
 
-    def lincomb(self,other,alpha,beta):
-        lijst=[]
-        for i in range(0,len(other.n)):
-            getal= float(alpha)*float(self.n[i])+float(beta)*float(other.n[i])
-            lijst.append(getal)
-        return Vector(len(other.n),lijst)
+    def lincomb(self, other,alpha,beta):
+        lcom=[]
+        for i in range(len(self.n)):
+            lcom.append(float(alpha)*float(self.n[i])+float(beta)*float(other.n[i]))
+        return Vector(len(other.n),lcom)
 
     def scalar(self,alpha):
-        lijst=[]
-        for i in range(0,len(self.n)):
-            getal= float(alpha)*float(self.n[i])
-            lijst.append(getal)
-        return Vector(len(self.n),lijst)
+        scal=[]
+        for i in range(len(self.n)):
+            scal.append(float(alpha)*float(self.n[i]))
+        return Vector(len(self.n),scal)
 
     def norm(self):
-        kwad=0.0
-        for i in range(0,len(self.n)):
-            kwad+=float(self.n[i])**2
-        norm=math.sqrt(kwad)
-        return norm
+        nor=0
+        for i in range(len(self.n)):
+            nor=nor+float(self.n[i])**2
+        return float(math.sqrt(nor))
 
     def inner(self,other):
-        inner=0.0
-        for i in range(0,len(self.n)):
-            inner+=float(self.n[i])*float(other.n[i])
-        return inner
+        inne=0
+        for i in range(len(self.n)):
+            inne=inne+float(self.n[i])*float(other.n[i])
+        return float(inne)
 
 def GrammSchmidt(V):
     k=len(V)
