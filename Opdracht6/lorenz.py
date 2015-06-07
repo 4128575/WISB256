@@ -21,7 +21,7 @@ class Lorenz(object):
         x=np.matrix([[-self.sigma,self.sigma,0],[self.rho-u[2],-1,-u[0]],[u[1],u[0],-self.beta]])
         return x
     
-    def isstable(self,u):
+    def isStable(self,u):
         jac=self.df(u)
         eigen=linalg.eig(jac)[0]
         self.eigen=eigen
